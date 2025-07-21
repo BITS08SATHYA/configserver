@@ -35,7 +35,16 @@ management:
   endpoints:
     web:
       exposure:
-        include: "*"
+        include:
+          - "*"
+          - prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  tracing:
+    sampling:
+      probability: 1.0
 
 server:
   port: 8082
