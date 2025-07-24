@@ -26,12 +26,6 @@ spring:
     port: 5672
     username: guest
     password: guest
-    exchange:
-      name: order.exchange
-    queue:
-      name: order.queue
-    routing:
-      key: order.tracking
 
 management:
   endpoints:
@@ -57,7 +51,13 @@ management:
 server:
   port: 8083
 
-
+rabbitmq:
+  exchange:
+    name: order.exchange
+  queue:
+    name: order.queue
+  routing:
+    key: order.tracking
 
 app:
   message: "Hello vinopapa"
