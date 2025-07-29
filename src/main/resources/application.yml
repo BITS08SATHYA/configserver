@@ -2,12 +2,14 @@ spring:
   application:
     name: configserver
   profiles:
-    active: native
+    active: git
   cloud:
     config:
       server:
-        native:
-          search-locations: /home/sathipa/MyCompleteLearning/Spring_Udemy/EmbarkX/Embarx-microservices/configserver/src/main/resources/config
+        git:
+          uri:
+#        native:
+#          search-locations: /home/sathipa/MyCompleteLearning/Spring_Udemy/EmbarkX/Embarx-microservices/configserver/src/main/resources/config
   rabbitmq:
     host: localhost
     port: 5672

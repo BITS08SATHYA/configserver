@@ -75,3 +75,10 @@ resilience4j:
 server:
   port: 8080
 
+# Security
+spring:
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          issuer-uri: http://localhost:8443/realms/ecom-app
