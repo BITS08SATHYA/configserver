@@ -36,6 +36,14 @@ dependencyManagement {
 	}
 }
 
+tasks.withType(ProcessResources){
+	duplicatesStrategy = DuplicatesStrategy.INCLUDE
+	from('src/main/resources'){
+		include '**/*.yml'
+		include '**/*.yaml'
+	}
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }

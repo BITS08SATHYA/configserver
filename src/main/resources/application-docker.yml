@@ -1,8 +1,8 @@
 spring:
   application:
-    name: configserver
-  profiles:
-    active: native
+    name: configserver-docker
+#  profiles:
+#    active: docker
   rabbitmq:
     host: ${RABBITMQ_HOST:rabbitmq}
     port: ${RABBITMQ_PORT:5672}
@@ -12,15 +12,8 @@ spring:
   cloud:
     config:
       server:
-#        git:
-#          uri: https://github.com/BITS08SATHYA/configserver.git
-#          clone-on-start: true
-#          default-label: master
-#          search-paths: /config
         native:
           search-locations: classpath:/config
-
-
 
 server:
   port: 8888
