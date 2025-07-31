@@ -1,17 +1,7 @@
 spring:
   application:
-    name: product-service
-#  h2:
-#    console:
-#      enabled: true
-#  datasource:
-#    url: jdbc:h2:mem:test
-#    username: sa
-#    password: ''
-#  jpa:
-#    show-sql: true
-#    hibernate:
-#      ddl-auto: create
+    name: product-service-docker
+
   datasource:
     url: jdbc:postgresql://postgres:5432/product
     username: ${DB_USER}
@@ -22,10 +12,15 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   rabbitmq:
-    host: rabbitmq
-    port: 5672
-    username: guest
-    password: guest
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+#    enabled: false
+#  sleuth:
+#    enabled: false
 
 management:
   endpoints:
@@ -48,7 +43,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://eureka:8761/eureka
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
   register-with-eureka: true
   fetch-registry: true
 

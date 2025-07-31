@@ -77,8 +77,18 @@ server:
 
 # Security
 spring:
+  application:
+    name: gateway-docker
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://localhost:8443/realms/ecom-app
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka
+  register-with-eureka: true
+  fetch-registry: true

@@ -1,6 +1,8 @@
 spring:
   application:
     name: product-service
+#  profiles:
+#    active: ${SPRING_PROFILES_ACTIVE}
 #  h2:
 #    console:
 #      enabled: true
@@ -22,10 +24,15 @@ spring:
       ddl-auto: update
     database-platform: org.hibernate.dialect.PostgreSQLDialect
   rabbitmq:
-    host: localhost
-    port: 5672
-    username: guest
-    password: guest
+    host: ${RABBITMQ_HOST}
+    port: ${RABBITMQ_PORT}
+    username: ${RABBITMQ_USERNAME}
+    password: ${RABBITMQ_PASSWORD}
+  zipkin:
+    base-url: ${ZIPKIN_URL}
+#    enabled: false
+#  sleuth:
+#    enabled: false
 
 management:
   endpoints:

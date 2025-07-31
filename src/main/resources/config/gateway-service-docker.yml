@@ -77,8 +77,18 @@ server:
 
 # Security
 spring:
+  application:
+    name: gateway-docker
   security:
     oauth2:
       resourceserver:
         jwt:
           issuer-uri: http://keycloak:8080/realms/ecom-app
+
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: ${EUREKA_CLIENT_SERVICEURL_DEFAULTZONE}
+  register-with-eureka: true
+  fetch-registry: true
